@@ -19,8 +19,11 @@ cmake_minimum_required(VERSION 3.13 FATAL_ERROR)
 include(cmake/modules/set_ifndef.cmake)
 include(cmake/modules/find_library_create_target.cmake)
 
+message(STATUS "CMAKE_BINARY_DIR: ${CMAKE_BINARY_DIR}")
 set_ifndef(TRT_LIB_DIR ${CMAKE_BINARY_DIR})
 set_ifndef(TRT_OUT_DIR ${CMAKE_BINARY_DIR})
+message(STATUS "TRT LIB DIR: ${TRT_LIB_DIR}")
+# Converts Windows paths
 
 # Converts Windows paths
 if(CMAKE_VERSION VERSION_LESS 3.20)
@@ -72,7 +75,7 @@ project(TensorRT
         HOMEPAGE_URL "https://github.com/NVIDIA/TensorRT")
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-  set(CMAKE_INSTALL_PREFIX ${TRT_LIB_DIR}/../ CACHE PATH "TensorRT installation" FORCE)
+  set(CMAKE_INSTALL_PREFIX ${TRT_LIB_DIR}/ CACHE PATH "TensorRT installation" FORCE)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
 option(BUILD_PLUGINS "Build TensorRT plugin" ON)
@@ -108,8 +111,8 @@ endif()
 ############################################################################################
 # Dependencies
 
-set(DEFAULT_CUDA_VERSION 12.2.0)
-set(DEFAULT_CUDNN_VERSION 8.9)
+set(DEFAULT_CUDA_VERSION 12.6.0)
+set(DEFAULT_CUDNN_VERSION 9.3)
 set(DEFAULT_PROTOBUF_VERSION 3.20.1)
 
 # Dependency Version Resolution

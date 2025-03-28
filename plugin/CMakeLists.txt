@@ -56,6 +56,7 @@ set(TRT_PLUGIN_NAMES
     specialSlicePlugin
     splitPlugin
     voxelGeneratorPlugin
+    gridSample3DPlugin
 )
 
 
@@ -302,7 +303,8 @@ set(PLUGIN_LISTS
     scatterPlugin
     specialSlicePlugin
     splitPlugin
-    voxelGeneratorPlugin)
+    voxelGeneratorPlugin
+    gridSample3DPlugin)
 
 # Add BERT sources if ${BERT_GENCODES} was populated
 if(BERT_GENCODES)

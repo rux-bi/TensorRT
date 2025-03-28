@@ -59,6 +59,7 @@
 #include "specialSlicePlugin/specialSlicePlugin.h"
 #include "splitPlugin/split.h"
 #include "voxelGeneratorPlugin/voxelGenerator.h"
+#include "gridSample3DPlugin/grid_sample_3d_plugin.h"
 #endif
 #include <algorithm>
 #include <array>
@@ -231,6 +232,7 @@ extern "C"
         initializePlugin<nvinfer1::plugin::SpecialSlicePluginCreator>(logger, libNamespace);
         initializePlugin<nvinfer1::plugin::SplitPluginCreator>(logger, libNamespace);
         initializePlugin<nvinfer1::plugin::VoxelGeneratorPluginCreator>(logger, libNamespace);
+        initializePlugin<nvinfer1::plugin::GridSample3DPluginCreator>(logger, libNamespace);
 #endif
         return true;
     }
